@@ -95,6 +95,8 @@ export function GridDropZone({
   // when animating swap positions on drag events
   const itemsIndexes = React.Children.map(children, (_, i) => i);
 
+  if (!itemsIndexes) return null;
+
   return (
     <div
       ref={ref}
