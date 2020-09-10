@@ -9,14 +9,14 @@ import { GridItemContext } from "./GridItemContext";
 
 export interface GridDropZoneProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  boxesPerRow: number;
-  rowHeight: number;
-  id: string;
-  children: React.ReactNodeArray;
-  disableDrag?: boolean;
-  disableDrop?: boolean;
-  style?: React.CSSProperties;
-}
+    columnWidth: number;
+    rowHeight: number;
+    id: string;
+    children: React.ReactNodeArray;
+    disableDrag?: boolean;
+    disableDrop?: boolean;
+    style?: React.CSSProperties;
+  }
 
 interface PlaceholderType {
   startIndex: number;
@@ -25,11 +25,11 @@ interface PlaceholderType {
 
 export function GridDropZone({
   id,
-  boxesPerRow,
   children,
   style,
   disableDrag = false,
   disableDrop = false,
+  columnWidth,
   rowHeight,
   ...other
 }: GridDropZoneProps) {
@@ -57,8 +57,8 @@ export function GridDropZone({
       : null;
 
   const grid: GridSettings = {
-    columnWidth: bounds.width / boxesPerRow,
-    boxesPerRow,
+    columnWidth,
+    boxesPerRow: Math.floor(bounds.width / columnWidth),
     rowHeight
   };
 
