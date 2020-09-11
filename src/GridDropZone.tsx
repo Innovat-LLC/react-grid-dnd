@@ -58,7 +58,7 @@ export function GridDropZone({
 
   const grid: GridSettings = {
     columnWidth,
-    boxesPerRow: Math.floor(bounds.width / columnWidth),
+    boxesPerRow: Math.floor(bounds.width / columnWidth) || 1,
     rowHeight
   };
 

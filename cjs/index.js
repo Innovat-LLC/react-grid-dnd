@@ -323,7 +323,7 @@ function swap(array, moveIndex, toIndex) {
 var GridItemContext = React.createContext(null);
 
 function GridDropZone(_a) {
-    var id = _a.id, boxesPerRow = _a.boxesPerRow, children = _a.children, style = _a.style, _b = _a.disableDrag, disableDrag = _b === void 0 ? false : _b, _c = _a.disableDrop, disableDrop = _c === void 0 ? false : _c, rowHeight = _a.rowHeight, other = tslib.__rest(_a, ["id", "boxesPerRow", "children", "style", "disableDrag", "disableDrop", "rowHeight"]);
+    var id = _a.id, children = _a.children, style = _a.style, _b = _a.disableDrag, disableDrag = _b === void 0 ? false : _b, _c = _a.disableDrop, disableDrop = _c === void 0 ? false : _c, columnWidth = _a.columnWidth, rowHeight = _a.rowHeight, other = tslib.__rest(_a, ["id", "children", "style", "disableDrag", "disableDrop", "columnWidth", "rowHeight"]);
     var _d = React.useContext(GridContext), traverse = _d.traverse, startTraverse = _d.startTraverse, endTraverse = _d.endTraverse, register = _d.register, measureAll = _d.measureAll, onChange = _d.onChange, remove = _d.remove, getActiveDropId = _d.getActiveDropId;
     var ref = React.useRef(null);
     var _e = useMeasure(ref), bounds = _e.bounds, remeasure = _e.remeasure;
@@ -333,8 +333,8 @@ function GridDropZone(_a) {
         ? traverse.targetIndex
         : null;
     var grid = {
-        columnWidth: bounds.width / boxesPerRow,
-        boxesPerRow: boxesPerRow,
+        columnWidth: columnWidth,
+        boxesPerRow: Math.floor(bounds.width / columnWidth) || 1,
         rowHeight: rowHeight
     };
     var childCount = React.Children.count(children);

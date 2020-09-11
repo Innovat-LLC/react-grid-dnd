@@ -99,7 +99,8 @@ function DragBetweenExample({ single }: any) {
               touchAction: "none"
             }}
             id="left"
-            boxesPerRow={4}
+            // boxesPerRow={4}
+            columnWidth={70}
             rowHeight={70}
           >
             {items.left.map(item => (
@@ -146,7 +147,8 @@ function DragBetweenExample({ single }: any) {
                 touchAction: "none"
               }}
               id="right"
-              boxesPerRow={4}
+              // boxesPerRow={4}
+              columnWidth={70}
               rowHeight={70}
             >
               {items.right.map(item => (
@@ -198,7 +200,8 @@ function DragBetweenExample({ single }: any) {
           touchAction: "none"
         }}
         id="dock"
-        boxesPerRow={4}
+        // boxesPerRow={4}
+        columnWidth={70}
         rowHeight={70}
       >
         {items.dock.map(item => (
@@ -286,7 +289,8 @@ function ReadmeExample() {
     <GridContextProvider onChange={onChange}>
       <GridDropZone
         id="items"
-        boxesPerRow={4}
+        // boxesPerRow={4}
+        columnWidth={100}
         rowHeight={100}
         style={{ height: "400px" }}
       >

@@ -1,6 +1,6 @@
 import * as React from "react";
 export interface GridDropZoneProps extends React.HTMLAttributes<HTMLDivElement> {
-    boxesPerRow: number;
+    columnWidth: number;
     rowHeight: number;
     id: string;
     children: React.ReactNodeArray;
@@ -8,4 +8,4 @@ export interface GridDropZoneProps extends React.HTMLAttributes<HTMLDivElement> 
     disableDrop?: boolean;
     style?: React.CSSProperties;
 }
-export declare function GridDropZone({ id, boxesPerRow, children, style, disableDrag, disableDrop, rowHeight, ...other }: GridDropZoneProps): JSX.Element | null;
+export declare function GridDropZone({ id, children, style, disableDrag, disableDrop, columnWidth, rowHeight, ...other }: GridDropZoneProps): JSX.Element | null;
