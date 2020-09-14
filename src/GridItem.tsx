@@ -9,12 +9,14 @@ import { GridItemContext } from "./GridItemContext";
 
 interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  disableDrag?: boolean;
 }
 
 export function GridItem({
   children,
   style,
   className,
+  disableDrag: disableDragItem,
   ...other
 }: GridItemProps) {
   const context = React.useContext(GridItemContext);
@@ -27,7 +29,7 @@ export function GridItem({
 
   const {
     top,
-    disableDrag,
+    disableDrag: disableDragGlobal,
     endTraverse,
     onStart,
     mountWithTraverseTarget,
@@ -38,6 +40,8 @@ export function GridItem({
     grid,
     dragging: isDragging
   } = context;
+
+  const disableDrag = disableDragGlobal || disableDragItem;
 
   const { columnWidth, rowHeight } = grid;
   const dragging = React.useRef(false);
